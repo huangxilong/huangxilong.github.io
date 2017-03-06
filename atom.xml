@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>黄乙的梦呓</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://me61.com/"/>
+  <updated>2017-03-06T04:07:32.000Z</updated>
+  <id>http://me61.com/</id>
+  
+  <author>
+    <name>黄乙</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搞一个自己的博客</title>
+    <link href="http://me61.com/engage-yourself-in-a-blog.html"/>
+    <id>http://me61.com/engage-yourself-in-a-blog.html</id>
+    <published>2017-03-02T07:12:25.000Z</published>
+    <updated>2017-03-06T04:07:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>好雨知时节，当春乃发生。<br>随风潜入夜，润物细无声。</p>
+</blockquote>
+<p>互联网便是如今的「好雨」，默默供应着方便、高效、丰富的基础服务。很感谢这些优秀的服务提供者，让我们可以免费、简便地实现自己的想法。我要做一个属于自己的博客，也是借助了互联网提供的服务来折腾出来的。这些文字记录了建立本站的基本过程。作为一个技术控 + 颜控，对博客的质量与要求也是极高的。</p>
+<h2 id="理想中的博客"><a href="#理想中的博客" class="headerlink" title="理想中的博客"></a>理想中的博客</h2><ol>
+<li>可以随时写作，无需依赖网络与编辑器。</li>
+<li>能够保留文章副本，就算网站挂了、丢了，还能随时重新发布。</li>
+<li>要优雅、要好看，并可以自定义模板主题。<a id="more"></a>
+</li>
+</ol>
+<p>主角出场：<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a></p>
+<blockquote>
+<p>超快速度：让上百个页面在几秒内瞬间完成渲染。<br>支持 Markdown：支持 GitHub Flavored Markdown 的所有功能。<br>一键部署：只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。<br>丰富的插件：拥有强大的插件系统，丰富的漂亮主题。</p>
+</blockquote>
+<p>以上是官网的介绍。客观的数据来说话：这家伙在 Github 上有 14982 Star，2296 Fork。这已令我无法自拔。</p>
+<h2 id="安装-Hexo-和-NexT-主题"><a href="#安装-Hexo-和-NexT-主题" class="headerlink" title="安装 Hexo 和 NexT 主题"></a>安装 Hexo 和 NexT 主题</h2><p>动手吧，打开 iTerm (使用任意自己喜欢的终端都一样)。依次输入下面命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div><div class="line">hexo init blog</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>安装喜欢的网站主题（皮肤）。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
+<p>目前为止，经过以上的几个简单命令。已经完成的工作有：</p>
+<ul>
+<li>安装了 Hexo 静态站点生成框架。</li>
+<li>建立了本机的博客网站。</li>
+<li>安装了 NexT 主题。</li>
+</ul>
+<h2 id="网站的常规配置"><a href="#网站的常规配置" class="headerlink" title="网站的常规配置"></a>网站的常规配置</h2><p>后面继续配置网站，让她成为我们希望的结构和样子。<br>使用自己喜爱的编辑器打开文件：_config.yml</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">配置项</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:left">黄乙的梦呓</td>
+<td style="text-align:left">网站标题</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">黄乙</td>
+<td style="text-align:left">您的名字</td>
+</tr>
+<tr>
+<td style="text-align:left">language</td>
+<td style="text-align:left">zh-Hans</td>
+<td style="text-align:left">网站使用的语言</td>
+</tr>
+<tr>
+<td style="text-align:left">url</td>
+<td style="text-align:left"><a href="http://me61.com">http://me61.com</a></td>
+<td style="text-align:left">网址</td>
+</tr>
+<tr>
+<td style="text-align:left">permalink</td>
+<td style="text-align:left">:title.html</td>
+<td style="text-align:left">文章的 永久链接 格式</td>
+</tr>
+<tr>
+<td style="text-align:left">default_category</td>
+<td style="text-align:left">我的分类</td>
+<td style="text-align:left">默认分类</td>
+</tr>
+<tr>
+<td style="text-align:left">date_format</td>
+<td style="text-align:left">YYYY年MM月DD日</td>
+<td style="text-align:left">日期格式</td>
+</tr>
+<tr>
+<td style="text-align:left">theme</td>
+<td style="text-align:left">next</td>
+<td style="text-align:left">网站主题</td>
+</tr>
+</tbody>
+</table>
+<p>配置网站的样式：themes/next/_config.yml</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">配置项</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">scheme</td>
+<td style="text-align:left">Mist</td>
+<td style="text-align:left">网站外观</td>
+</tr>
+<tr>
+<td style="text-align:left">sidebar</td>
+<td style="text-align:left">always</td>
+<td style="text-align:left">侧栏显示的时机</td>
+</tr>
+</tbody>
+</table>
+<h2 id="调试预览、部署网站"><a href="#调试预览、部署网站" class="headerlink" title="调试预览、部署网站"></a>调试预览、部署网站</h2><p>启动 Hexo 本地站点，并开启调试模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure></p>
+<p>用浏览器打开网址：<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> ，显示如下图<br><img src="img/blog-first-snst.png" alt="Hexo 主题 NexT.Mist" title="Hexo 主题 NexT.Mist"></p>
+<p>把博客部署到 Github 上<br>修改配置文件，这个要使用<strong>你自己的信息</strong>来配置。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  repo:</span> &lt;repository url<span class="string">&gt;</span></div><div class="line"><span class="attr">  branch:</span> [branch]</div><div class="line"><span class="attr">  message:</span> [message]</div></pre></td></tr></table></figure></p>
+<p>再输入以下命令，完成网站部署。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div><div class="line">hexo clean <span class="comment"># 清除资源</span></div><div class="line">hexo g     <span class="comment"># 生成静态资源</span></div><div class="line">hexo d     <span class="comment"># 部署</span></div></pre></td></tr></table></figure></p>
+<p>经历以上的步骤，我便拥有了一个很优雅、易定制、方便写作和发布的免费博客网站。以后我会继续分享一些后续的配置优化，以及增加一些常用插件。</p>
+<h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><p>不得不说，我们正处于一个资源十分丰富、信息十分发达的时期。我从一个完全没有接触过 Hexo 博客、不了解 Markdown 使用方法的小白用户，到开始能谨慎使用这些优秀的服务与工具，来实现自己的一些有趣想法，也不过花了几天的闲余时间。「Stay hungry, Stay foolish」自勉。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;好雨知时节，当春乃发生。&lt;br&gt;随风潜入夜，润物细无声。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;互联网便是如今的「好雨」，默默供应着方便、高效、丰富的基础服务。很感谢这些优秀的服务提供者，让我们可以免费、简便地实现自己的想法。我要做一个属于自己的博客，也是借助了互联网提供的服务来折腾出来的。这些文字记录了建立本站的基本过程。作为一个技术控 + 颜控，对博客的质量与要求也是极高的。&lt;/p&gt;
+&lt;h2 id=&quot;理想中的博客&quot;&gt;&lt;a href=&quot;#理想中的博客&quot; class=&quot;headerlink&quot; title=&quot;理想中的博客&quot;&gt;&lt;/a&gt;理想中的博客&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;可以随时写作，无需依赖网络与编辑器。&lt;/li&gt;
+&lt;li&gt;能够保留文章副本，就算网站挂了、丢了，还能随时重新发布。&lt;/li&gt;
+&lt;li&gt;要优雅、要好看，并可以自定义模板主题。
+    
+    </summary>
+    
+      <category term="写作" scheme="http://me61.com/categories/%E5%86%99%E4%BD%9C/"/>
+    
+    
+      <category term="hexo" scheme="http://me61.com/tags/hexo/"/>
+    
+      <category term="next" scheme="http://me61.com/tags/next/"/>
+    
+      <category term="blog" scheme="http://me61.com/tags/blog/"/>
+    
+  </entry>
+  
+</feed>
