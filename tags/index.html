@@ -76,6 +76,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="黄乙的梦呓" type="application/atom+xml" />
 
@@ -419,6 +421,20 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">黄乙</span>
+  
+  
+
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span><span id="showDays"></span>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+      <span >&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span >总访问量<span><span  id="busuanzi_value_site_pv"></span>
+      <span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span >您是第</span>
+      <span id="busuanzi_value_site_uv"></span>
+      <span >个小伙伴</span>
+      
 </div>
 
 
@@ -432,6 +448,16 @@
     NexT.Mist
   </a>
 </div>
+
+
+</div>
+<script>
+	var birthDay = new Date('03/6/2017');
+	var now = new Date();
+	var duration = now.getTime() - birthDay.getTime();
+	var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+	document.getElementById('showDays').innerHTML='本站已运行' + total + '天';
+</script>
 
 
         
