@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://me61.com/"/>
-  <updated>2017-03-06T04:07:32.000Z</updated>
-  <id>http://me61.com/</id>
+  <link href="http://huangxilong.github.io/"/>
+  <updated>2017-03-06T06:24:27.000Z</updated>
+  <id>http://huangxilong.github.io/</id>
   
   <author>
     <name>黄乙</name>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>搞一个自己的博客</title>
-    <link href="http://me61.com/engage-yourself-in-a-blog.html"/>
-    <id>http://me61.com/engage-yourself-in-a-blog.html</id>
+    <link href="http://huangxilong.github.io/engage-yourself-in-a-blog.html"/>
+    <id>http://huangxilong.github.io/engage-yourself-in-a-blog.html</id>
     <published>2017-03-02T07:12:25.000Z</published>
-    <updated>2017-03-06T04:07:32.000Z</updated>
+    <updated>2017-03-06T06:24:27.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>好雨知时节，当春乃发生。<br>随风潜入夜，润物细无声。</p>
@@ -72,7 +72,7 @@
 </tr>
 <tr>
 <td style="text-align:left">url</td>
-<td style="text-align:left"><a href="http://me61.com">http://me61.com</a></td>
+<td style="text-align:left"><a href="http://huangxilong.github.io">http://huangxilong.github.io</a></td>
 <td style="text-align:left">网址</td>
 </tr>
 <tr>
@@ -140,14 +140,14 @@
     
     </summary>
     
-      <category term="写作" scheme="http://me61.com/categories/%E5%86%99%E4%BD%9C/"/>
+      <category term="写作" scheme="http://huangxilong.github.io/categories/%E5%86%99%E4%BD%9C/"/>
     
     
-      <category term="hexo" scheme="http://me61.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://huangxilong.github.io/tags/hexo/"/>
     
-      <category term="next" scheme="http://me61.com/tags/next/"/>
+      <category term="next" scheme="http://huangxilong.github.io/tags/next/"/>
     
-      <category term="blog" scheme="http://me61.com/tags/blog/"/>
+      <category term="blog" scheme="http://huangxilong.github.io/tags/blog/"/>
     
   </entry>
   
