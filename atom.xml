@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://me61.com/"/>
-  <updated>2017-03-08T15:50:11.000Z</updated>
+  <updated>2017-03-09T01:49:30.000Z</updated>
   <id>http://me61.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://me61.com/markdown-quick-guide.html"/>
     <id>http://me61.com/markdown-quick-guide.html</id>
     <published>2017-03-08T06:03:44.000Z</published>
-    <updated>2017-03-08T15:50:11.000Z</updated>
+    <updated>2017-03-09T01:49:30.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>工欲善其事，必先利其器。</p>
@@ -35,7 +35,8 @@
 <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在标题内容前输入 1～6 个井号「#」来实现对应级别的HTML样式的标题 h1 ~ h6 。例如：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="section"># 一级标题</span></div><div class="line"><span class="section">## 二级标题</span></div><div class="line"><span class="section">### 三级标题</span></div></pre></td></tr></table></figure>
 <p>效果如下：</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>不加任何标记符时，就是正文内容。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">假如我是一朵雪花， </div><div class="line">翩翩的在半空里潇洒， </div><div class="line">　我一定认清我的方向—— </div><div class="line">　飞扬，飞扬，飞扬，—— </div><div class="line">这地面上有我的方向。</div></pre></td></tr></table></figure></p>
+<p><img src="img/blog-2-h13.png" alt="标题演示"></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>不加任何标记符时，就是正文内容。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">假如我是一朵雪花， </div><div class="line">翩翩的在半空里潇洒， </div><div class="line">　我一定认清我的方向—— </div><div class="line">　飞扬，飞扬，飞扬，—— </div><div class="line">这地面上有我的方向。</div></pre></td></tr></table></figure></p>
 <p>效果如下：<br>假如我是一朵雪花，<br>翩翩的在半空里潇洒，<br>　我一定认清我的方向——<br>　飞扬，飞扬，飞扬，——<br>这地面上有我的方向。 </p>
 <h2 id="加粗、斜体"><a href="#加粗、斜体" class="headerlink" title="加粗、斜体"></a>加粗、斜体</h2><p>粗体使用两个「<em>」包围，斜体使用一个「</em>」包围。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="strong">**假如我是一朵雪花，**</span> </div><div class="line"><span class="emphasis">*翩翩的在半空里潇洒，*</span></div></pre></td></tr></table></figure></p>
 <p>效果如下：<br><strong> 假如我是一朵雪花，</strong><br><em>翩翩的在半空里潇洒，</em> </p>
