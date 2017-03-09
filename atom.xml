@@ -115,9 +115,9 @@
       <category term="写作" scheme="http://me61.com/categories/%E5%86%99%E4%BD%9C/"/>
     
     
-      <category term="blog" scheme="http://me61.com/tags/blog/"/>
-    
       <category term="markdown" scheme="http://me61.com/tags/markdown/"/>
+    
+      <category term="blog" scheme="http://me61.com/tags/blog/"/>
     
   </entry>
   
@@ -249,11 +249,11 @@
       <category term="写作" scheme="http://me61.com/categories/%E5%86%99%E4%BD%9C/"/>
     
     
+      <category term="blog" scheme="http://me61.com/tags/blog/"/>
+    
       <category term="hexo" scheme="http://me61.com/tags/hexo/"/>
     
       <category term="next" scheme="http://me61.com/tags/next/"/>
-    
-      <category term="blog" scheme="http://me61.com/tags/blog/"/>
     
   </entry>
   
