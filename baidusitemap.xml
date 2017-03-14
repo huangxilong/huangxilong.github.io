@@ -4,6 +4,36 @@
 
     
   <url>
+    <loc>http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html</loc>
+    <lastmod>2017-03-14T06:29:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat</title>
+        <pubTime>2017-03-14T06:29:36.000Z</pubTime>
+        
+        <tag>aliyun</tag>
+         
+        <tag>ecs</tag>
+         
+        <tag>nginx</tag>
+         
+        <tag>php</tag>
+         
+        <tag>mysql</tag>
+         
+        <tag>tomcat</tag>
+         
+         
+           
+             
+              <breadCrumb title="运维" url="http://me61.com/categories/%E8%BF%90%E7%BB%B4/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://me61.com/markdown-quick-guide.html</loc>
     <lastmod>2017-03-09T01:49:30.000Z</lastmod>
     <data>
@@ -11,9 +41,9 @@
         <title>Markdown 速成手册</title>
         <pubTime>2017-03-08T06:03:44.000Z</pubTime>
         
-        <tag>markdown</tag>
-         
         <tag>blog</tag>
+         
+        <tag>markdown</tag>
          
          
            
@@ -33,11 +63,11 @@
         <title>搞一个自己的博客</title>
         <pubTime>2017-03-02T07:12:25.000Z</pubTime>
         
-        <tag>blog</tag>
-         
         <tag>hexo</tag>
          
         <tag>next</tag>
+         
+        <tag>blog</tag>
          
          
            

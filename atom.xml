@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://me61.com/"/>
-  <updated>2017-03-09T01:49:30.000Z</updated>
+  <updated>2017-03-14T06:29:36.000Z</updated>
   <id>http://me61.com/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat</title>
+    <link href="http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html"/>
+    <id>http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html</id>
+    <published>2017-03-14T06:29:36.000Z</published>
+    <updated>2017-03-14T06:29:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>不积跬步，无以至千里；<br>不积小流，无以成江海。</p>
+</blockquote>
+<p>阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。</p>
+<a id="more"></a>
+<h2 id="登录远程服务器"><a href="#登录远程服务器" class="headerlink" title="登录远程服务器"></a>登录远程服务器</h2><p>打开 iTerm，也可以选择其它的终端软件，如：Putty、Xshell等。<br>如图<br><img src="img/blog3img1.png" alt="登录远程服务器过程"><br>使用 SSH 可以安全高效地远程管理服务器。首次登录时，需要输入「yes」来确认连接这台未知的远程服务器。登录时需要输入账号和密码。分别输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh root@ip-address</div><div class="line">yes</div><div class="line">your-password</div></pre></td></tr></table></figure>
+<h2 id="格式化并挂载数据盘"><a href="#格式化并挂载数据盘" class="headerlink" title="格式化并挂载数据盘"></a>格式化并挂载数据盘</h2><p>下面使用 fdist 查看数据盘并分区。简单说明一下使用方法与步骤。<br>查看所有数据盘：<code>fdisk -l</code><br>对数据盘分区：<code>fdisk -S 56 /dev/xvdb</code>，再依次输入 <code>n p 1 enter enter wq</code><br>格式化分区：<code>mkfs.ext3 /dev/xvdb1</code><br>创建挂载目录：<code>mkdir /data</code><br>添加分区信息：<code>echo &#39;/dev/xvdb1  /lgdata ext3    defaults    0  0&#39; &gt;&gt; /etc/fstab</code><br>挂载：<code>mount -a</code><br>如图所示<br><img src="img/blog3img2.png" alt="格式化并挂载数据盘"></p>
+<h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</div><div class="line">rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm</div><div class="line">yum install nginx</div><div class="line">service nginx start</div><div class="line">chkconfig nginx on</div></pre></td></tr></table></figure>
+<h2 id="安装-php"><a href="#安装-php" class="headerlink" title="安装 php"></a>安装 php</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum install php php-mysql php-gd libjpeg* php-pear php-xml php-mbstring php-mcrypt php-mhash libmcrypt libm</div><div class="line">crypt-devel php-imap php-ldap php-odbc php-bcmath php-xmlrpc php-fpm</div><div class="line">service php-fpm start</div><div class="line">chkconfig php-fpm on</div></pre></td></tr></table></figure>
+<h2 id="安装-mysql"><a href="#安装-mysql" class="headerlink" title="安装 mysql"></a>安装 mysql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">yum install mysql mysql-server mysql-devel</div><div class="line">mysqladmin -u root password <span class="string">"yourpswd"</span></div><div class="line"></div><div class="line"><span class="comment"># 修改数据库目录</span></div><div class="line"><span class="built_in">cd</span> /data</div><div class="line">mkdir mysql</div><div class="line">cp -R /var/lib/mysql/* /data/mysql/</div><div class="line">chown mysql:mysql -R /data/mysql/</div><div class="line">vim /etc/my.cnf</div><div class="line">datadir=/data/mysql </div><div class="line"></div><div class="line"><span class="comment"># 启动 mysql</span></div><div class="line">service mysqld start</div><div class="line">chkconfig mysqld on</div></pre></td></tr></table></figure>
+<h2 id="安装-tomcat"><a href="#安装-tomcat" class="headerlink" title="安装 tomcat"></a>安装 tomcat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /data</div><div class="line">mkdir app</div><div class="line"><span class="built_in">cd</span> app/</div><div class="line">wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz</div><div class="line">tar -zxvf apache-tomcat-8.5.11.tar.gz </div><div class="line">./apache-tomcat-8.5.11/bin/startup.sh</div></pre></td></tr></table></figure>
+<h2 id="配置-nginx、php-和-tomcat"><a href="#配置-nginx、php-和-tomcat" class="headerlink" title="配置 nginx、php 和 tomcat"></a>配置 nginx、php 和 tomcat</h2><p>打开 nginx 配置文件，添加以下配置在 server 中</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#proxy the php scripts to php-fpm</div><div class="line">location ~ \.php$ &#123;</div><div class="line">  include fastcgi.conf;</div><div class="line">  fastcgi_intercept_errors on;</div><div class="line">  fastcgi_pass   127.0.0.1:9000;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#proxy the jsp page to tomcat</div><div class="line">location /tomcat &#123;</div><div class="line">  proxy_pass   http://localhost:8080;</div><div class="line">  proxy_redirect off;</div><div class="line">  proxy_set_header Host $host;</div><div class="line">  proxy_set_header X-Real-IP $remote_addr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>重新载入配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx -t <span class="comment">#测试配置是否正确</span></div><div class="line">nginx <span class="_">-s</span> reload</div></pre></td></tr></table></figure></p>
+<p>经过以上操作，已经完成安装配置 nginx、php、mysql 和 tomcat。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;不积跬步，无以至千里；&lt;br&gt;不积小流，无以成江海。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="运维" scheme="http://me61.com/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="aliyun" scheme="http://me61.com/tags/aliyun/"/>
+    
+      <category term="ecs" scheme="http://me61.com/tags/ecs/"/>
+    
+      <category term="nginx" scheme="http://me61.com/tags/nginx/"/>
+    
+      <category term="php" scheme="http://me61.com/tags/php/"/>
+    
+      <category term="mysql" scheme="http://me61.com/tags/mysql/"/>
+    
+      <category term="tomcat" scheme="http://me61.com/tags/tomcat/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown 速成手册</title>
@@ -115,9 +166,9 @@
       <category term="写作" scheme="http://me61.com/categories/%E5%86%99%E4%BD%9C/"/>
     
     
-      <category term="markdown" scheme="http://me61.com/tags/markdown/"/>
-    
       <category term="blog" scheme="http://me61.com/tags/blog/"/>
+    
+      <category term="markdown" scheme="http://me61.com/tags/markdown/"/>
     
   </entry>
   
@@ -249,11 +300,11 @@
       <category term="写作" scheme="http://me61.com/categories/%E5%86%99%E4%BD%9C/"/>
     
     
-      <category term="blog" scheme="http://me61.com/tags/blog/"/>
-    
       <category term="hexo" scheme="http://me61.com/tags/hexo/"/>
     
       <category term="next" scheme="http://me61.com/tags/next/"/>
+    
+      <category term="blog" scheme="http://me61.com/tags/blog/"/>
     
   </entry>
   

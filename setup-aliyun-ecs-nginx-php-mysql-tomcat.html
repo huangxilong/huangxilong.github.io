@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="aliyun,ecs,nginx,php,mysql,tomcat," />
 
 
 
@@ -89,12 +89,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="黄乙的梦呓">
-<meta property="og:url" content="http://me61.com/index.html">
+<meta name="description" content="不积跬步，无以至千里；不积小流，无以成江海。
+
+阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat">
+<meta property="og:url" content="http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html">
 <meta property="og:site_name" content="黄乙的梦呓">
+<meta property="og:description" content="不积跬步，无以至千里；不积小流，无以成江海。
+
+阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。">
+<meta property="og:image" content="http://me61.com/img/blog3img1.png">
+<meta property="og:image" content="http://me61.com/img/blog3img2.png">
+<meta property="og:updated_time" content="2017-03-14T06:29:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黄乙的梦呓">
+<meta name="twitter:title" content="快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat">
+<meta name="twitter:description" content="不积跬步，无以至千里；不积小流，无以成江海。
+
+阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。">
+<meta name="twitter:image" content="http://me61.com/img/blog3img1.png">
 
 
 
@@ -122,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://me61.com/"/>
+  <link rel="canonical" href="http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html"/>
 
 
 
 
 
-  <title> 黄乙的梦呓 </title>
+  <title> 快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat | 黄乙的梦呓 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -153,9 +166,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,9 +269,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -290,10 +301,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/setup-aliyun-ecs-nginx-php-mysql-tomcat.html" itemprop="url">
-                  快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat
-                </a>
+                快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat
               
             
           </h1>
@@ -389,399 +397,93 @@
       
 
       
-        
-          <blockquote>
+        <blockquote>
 <p>不积跬步，无以至千里；<br>不积小流，无以成江海。</p>
 </blockquote>
 <p>阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/setup-aliyun-ecs-nginx-php-mysql-tomcat.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<a id="more"></a>
+<h2 id="登录远程服务器"><a href="#登录远程服务器" class="headerlink" title="登录远程服务器"></a>登录远程服务器</h2><p>打开 iTerm，也可以选择其它的终端软件，如：Putty、Xshell等。<br>如图<br><img src="img/blog3img1.png" alt="登录远程服务器过程"><br>使用 SSH 可以安全高效地远程管理服务器。首次登录时，需要输入「yes」来确认连接这台未知的远程服务器。登录时需要输入账号和密码。分别输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh root@ip-address</div><div class="line">yes</div><div class="line">your-password</div></pre></td></tr></table></figure>
+<h2 id="格式化并挂载数据盘"><a href="#格式化并挂载数据盘" class="headerlink" title="格式化并挂载数据盘"></a>格式化并挂载数据盘</h2><p>下面使用 fdist 查看数据盘并分区。简单说明一下使用方法与步骤。<br>查看所有数据盘：<code>fdisk -l</code><br>对数据盘分区：<code>fdisk -S 56 /dev/xvdb</code>，再依次输入 <code>n p 1 enter enter wq</code><br>格式化分区：<code>mkfs.ext3 /dev/xvdb1</code><br>创建挂载目录：<code>mkdir /data</code><br>添加分区信息：<code>echo &#39;/dev/xvdb1  /lgdata ext3    defaults    0  0&#39; &gt;&gt; /etc/fstab</code><br>挂载：<code>mount -a</code><br>如图所示<br><img src="img/blog3img2.png" alt="格式化并挂载数据盘"></p>
+<h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</div><div class="line">rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm</div><div class="line">yum install nginx</div><div class="line">service nginx start</div><div class="line">chkconfig nginx on</div></pre></td></tr></table></figure>
+<h2 id="安装-php"><a href="#安装-php" class="headerlink" title="安装 php"></a>安装 php</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum install php php-mysql php-gd libjpeg* php-pear php-xml php-mbstring php-mcrypt php-mhash libmcrypt libm</div><div class="line">crypt-devel php-imap php-ldap php-odbc php-bcmath php-xmlrpc php-fpm</div><div class="line">service php-fpm start</div><div class="line">chkconfig php-fpm on</div></pre></td></tr></table></figure>
+<h2 id="安装-mysql"><a href="#安装-mysql" class="headerlink" title="安装 mysql"></a>安装 mysql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">yum install mysql mysql-server mysql-devel</div><div class="line">mysqladmin -u root password <span class="string">"yourpswd"</span></div><div class="line"></div><div class="line"><span class="comment"># 修改数据库目录</span></div><div class="line"><span class="built_in">cd</span> /data</div><div class="line">mkdir mysql</div><div class="line">cp -R /var/lib/mysql/* /data/mysql/</div><div class="line">chown mysql:mysql -R /data/mysql/</div><div class="line">vim /etc/my.cnf</div><div class="line">datadir=/data/mysql </div><div class="line"></div><div class="line"><span class="comment"># 启动 mysql</span></div><div class="line">service mysqld start</div><div class="line">chkconfig mysqld on</div></pre></td></tr></table></figure>
+<h2 id="安装-tomcat"><a href="#安装-tomcat" class="headerlink" title="安装 tomcat"></a>安装 tomcat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /data</div><div class="line">mkdir app</div><div class="line"><span class="built_in">cd</span> app/</div><div class="line">wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz</div><div class="line">tar -zxvf apache-tomcat-8.5.11.tar.gz </div><div class="line">./apache-tomcat-8.5.11/bin/startup.sh</div></pre></td></tr></table></figure>
+<h2 id="配置-nginx、php-和-tomcat"><a href="#配置-nginx、php-和-tomcat" class="headerlink" title="配置 nginx、php 和 tomcat"></a>配置 nginx、php 和 tomcat</h2><p>打开 nginx 配置文件，添加以下配置在 server 中</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#proxy the php scripts to php-fpm</div><div class="line">location ~ \.php$ &#123;</div><div class="line">  include fastcgi.conf;</div><div class="line">  fastcgi_intercept_errors on;</div><div class="line">  fastcgi_pass   127.0.0.1:9000;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#proxy the jsp page to tomcat</div><div class="line">location /tomcat &#123;</div><div class="line">  proxy_pass   http://localhost:8080;</div><div class="line">  proxy_redirect off;</div><div class="line">  proxy_set_header Host $host;</div><div class="line">  proxy_set_header X-Real-IP $remote_addr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>重新载入配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx -t <span class="comment">#测试配置是否正确</span></div><div class="line">nginx <span class="_">-s</span> reload</div></pre></td></tr></table></figure></p>
+<p>经过以上操作，已经完成安装配置 nginx、php、mysql 和 tomcat。</p>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://me61.com/markdown-quick-guide.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="黄乙">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄乙的梦呓">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/markdown-quick-guide.html" itemprop="url">
-                  Markdown 速成手册
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T14:03:44+08:00">
-                2017年03月08日
-              </time>
-            
-
-            
-
-            
-          </span>
+        <div class="post-tags">
           
-          <span class="post-author">
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-              <i class="fa fa-user"></i>
-            </span>
-              <span class="post-meta-item-text">作者</span>
-              <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                <a href="/" itemprop="url" rel="index">
-                  <span itemprop="name">黄乙</span>
-                </a>
-              </span>
-          </span>
-
+            <a href="/tags/aliyun/" rel="tag"># aliyun</a>
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/写作/" itemprop="url" rel="index">
-                    <span itemprop="name">写作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/ecs/" rel="tag"># ecs</a>
           
-
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/markdown-quick-guide.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="markdown-quick-guide.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/php/" rel="tag"># php</a>
           
-
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
           
+            <a href="/tags/tomcat/" rel="tag"># tomcat</a>
           
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          <blockquote>
-<p>工欲善其事，必先利其器。</p>
-</blockquote>
-<h2 id="你需要使用-Markdown-吗？"><a href="#你需要使用-Markdown-吗？" class="headerlink" title="你需要使用 Markdown 吗？"></a>你需要使用 Markdown 吗？</h2><p>Markdown 是一种纯文本标记语言，目的是希望大家使用「易于阅读、易于撰写的纯文字格式」来写作。如果你想要写博客文章，或者做文字类的内容，可以了解一下 Markdown。用户只要使用一些简单的标记符号，就能生成极富表现力的文档。其特点如下：</p>
-<ul>
-<li>纯文本，可以使用任意文本编辑器写作。</li>
-<li>专注于内容，标记语法非常轻量且可读性强。</li>
-<li>内容与样式分离，且可以导出为 PDF 或 HTML 文件。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/markdown-quick-guide.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/markdown-quick-guide.html" rel="next" title="Markdown 速成手册">
+                <i class="fa fa-chevron-left"></i> Markdown 速成手册
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://me61.com/engage-yourself-in-a-blog.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="黄乙">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/img/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="黄乙的梦呓">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/engage-yourself-in-a-blog.html" itemprop="url">
-                  搞一个自己的博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-02T15:12:25+08:00">
-                2017年03月02日
-              </time>
-            
-
-            
-
-            
-          </span>
-          
-          <span class="post-author">
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-              <i class="fa fa-user"></i>
-            </span>
-              <span class="post-meta-item-text">作者</span>
-              <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                <a href="/" itemprop="url" rel="index">
-                  <span itemprop="name">黄乙</span>
-                </a>
-              </span>
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/写作/" itemprop="url" rel="index">
-                    <span itemprop="name">写作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/engage-yourself-in-a-blog.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="engage-yourself-in-a-blog.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote>
-<p>好雨知时节，当春乃发生。<br>随风潜入夜，润物细无声。</p>
-</blockquote>
-<p>互联网便是如今的「好雨」，默默供应着方便、高效、丰富的基础服务。很感谢这些优秀的服务提供者，让我们可以免费、简便地实现自己的想法。我要做一个属于自己的博客，也是借助了互联网提供的服务来折腾出来的。这些文字记录了建立本站的基本过程。作为一个技术控 + 颜控，对博客的质量与要求也是极高的。</p>
-<h2 id="理想中的博客"><a href="#理想中的博客" class="headerlink" title="理想中的博客"></a>理想中的博客</h2><ol>
-<li>可以随时写作，无需依赖网络与编辑器。</li>
-<li>能够保留文章副本，就算网站挂了、丢了，还能随时重新发布。</li>
-<li>要优雅、要好看，并可以自定义模板主题。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/engage-yourself-in-a-blog.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -789,6 +491,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="setup-aliyun-ecs-nginx-php-mysql-tomcat.html"
+           data-title="快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat" data-url="http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -808,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/img/avatar.jpg"
@@ -894,6 +613,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#登录远程服务器"><span class="nav-number">1.</span> <span class="nav-text">登录远程服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化并挂载数据盘"><span class="nav-number">2.</span> <span class="nav-text">格式化并挂载数据盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-nginx"><span class="nav-number">3.</span> <span class="nav-text">安装 nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-php"><span class="nav-number">4.</span> <span class="nav-text">安装 php</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-mysql"><span class="nav-number">5.</span> <span class="nav-text">安装 mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-tomcat"><span class="nav-number">6.</span> <span class="nav-text">安装 tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-nginx、php-和-tomcat"><span class="nav-number">7.</span> <span class="nav-text">配置 nginx、php 和 tomcat</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1023,6 +758,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
