@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://me61.com/"/>
-  <updated>2017-04-11T11:15:08.000Z</updated>
+  <updated>2017-04-11T11:19:35.000Z</updated>
   <id>http://me61.com/</id>
   
   <author>
@@ -16,13 +16,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Gulp 前端自动化构建工具</title>
+    <title>前端自动化构建工具 Gulp</title>
     <link href="http://me61.com/gulp-in-action.html"/>
     <id>http://me61.com/gulp-in-action.html</id>
     <published>2017-04-11T01:12:10.000Z</published>
-    <updated>2017-04-11T11:15:08.000Z</updated>
+    <updated>2017-04-11T11:19:35.000Z</updated>
     
-    <content type="html"><![CDATA[<p>&gt;<br>宝剑锋从磨砺出，梅花香自苦寒来。</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>宝剑锋从磨砺出，梅花香自苦寒来。</p>
+</blockquote>
 <p>我们做前端开发时，经常会碰到一些琐碎、重复的小任务。像压缩、合并文件，语法检查，编译 Sass/LESS，更新文件后刷新浏览器，等等。虽然这些只是花一两分钟就能做的小事情，但是每当重复一次又一次这些工作的时候，心里总会有些不爽。这时 gulp 能够把你从不爽中拯救出来，在不知不觉中提高了工作效率。</p>
 <h2 id="gulp-是什么？"><a href="#gulp-是什么？" class="headerlink" title="gulp 是什么？"></a>gulp 是什么？</h2><p>它是一个自动化构建工具，我们可以使用它在项目开发过程中自动执行常见任务。gulp 可以直接使用代码来配置和执行各种小任务，也可以通过现成的插件来完成我们定义的工作。</p>
 <a id="more"></a>
@@ -42,7 +44,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;&amp;gt;&lt;br&gt;宝剑锋从磨砺出，梅花香自苦寒来。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;宝剑锋从磨砺出，梅花香自苦寒来。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;我们做前端开发时，经常会碰到一些琐碎、重复的小任务。像压缩、合并文件，语法检查，编译 Sass/LESS，更新文件后刷新浏览器，等等。虽然这些只是花一两分钟就能做的小事情，但是每当重复一次又一次这些工作的时候，心里总会有些不爽。这时 gulp 能够把你从不爽中拯救出来，在不知不觉中提高了工作效率。&lt;/p&gt;
 &lt;h2 id=&quot;gulp-是什么？&quot;&gt;&lt;a href=&quot;#gulp-是什么？&quot; class=&quot;headerlink&quot; title=&quot;gulp 是什么？&quot;&gt;&lt;/a&gt;gulp 是什么？&lt;/h2&gt;&lt;p&gt;它是一个自动化构建工具，我们可以使用它在项目开发过程中自动执行常见任务。gulp 可以直接使用代码来配置和执行各种小任务，也可以通过现成的插件来完成我们定义的工作。&lt;/p&gt;
     
