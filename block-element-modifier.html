@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="aliyun,ecs,nginx,php,mysql,tomcat," />
+  <meta name="keywords" content="css,weui," />
 
 
 
@@ -89,25 +89,16 @@
 
 
 
-<meta name="description" content="不积跬步，无以至千里；不积小流，无以成江海。
-
-阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。">
+<meta name="description" content="最近使用 weui 开发移动端网页。其中的 CSS 命名方式勾起了我的兴趣。特意去了解它的来由。原来一开始 weui 的命名规范是采用「模块+应用场景」的方式，没有对连字符和层级做严格区分，团队内约定使用的都是下划线。后来改用了 BEM 的命名规则，横杠是连词符，双下划线区分 block 与 element，单下划线后面跟 modifier。相比「模块+应用场景」，BEM 命名规则更利于代码的开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat">
-<meta property="og:url" content="http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html">
+<meta property="og:title" content="BEM 命名规则">
+<meta property="og:url" content="http://me61.com/block-element-modifier.html">
 <meta property="og:site_name" content="黄乙的梦呓">
-<meta property="og:description" content="不积跬步，无以至千里；不积小流，无以成江海。
-
-阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。">
-<meta property="og:image" content="http://me61.com/img/blog3img1.png">
-<meta property="og:image" content="http://me61.com/img/blog3img2.png">
-<meta property="og:updated_time" content="2017-03-14T06:29:36.000Z">
+<meta property="og:description" content="最近使用 weui 开发移动端网页。其中的 CSS 命名方式勾起了我的兴趣。特意去了解它的来由。原来一开始 weui 的命名规范是采用「模块+应用场景」的方式，没有对连字符和层级做严格区分，团队内约定使用的都是下划线。后来改用了 BEM 的命名规则，横杠是连词符，双下划线区分 block 与 element，单下划线后面跟 modifier。相比「模块+应用场景」，BEM 命名规则更利于代码的开发">
+<meta property="og:updated_time" content="2017-04-12T08:21:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat">
-<meta name="twitter:description" content="不积跬步，无以至千里；不积小流，无以成江海。
-
-阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。">
-<meta name="twitter:image" content="http://me61.com/img/blog3img1.png">
+<meta name="twitter:title" content="BEM 命名规则">
+<meta name="twitter:description" content="最近使用 weui 开发移动端网页。其中的 CSS 命名方式勾起了我的兴趣。特意去了解它的来由。原来一开始 weui 的命名规范是采用「模块+应用场景」的方式，没有对连字符和层级做严格区分，团队内约定使用的都是下划线。后来改用了 BEM 的命名规则，横杠是连词符，双下划线区分 block 与 element，单下划线后面跟 modifier。相比「模块+应用场景」，BEM 命名规则更利于代码的开发">
 
 
 
@@ -135,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html"/>
+  <link rel="canonical" href="http://me61.com/block-element-modifier.html"/>
 
 
 
 
 
-  <title> 快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat | 黄乙的梦呓 </title>
+  <title> BEM 命名规则 | 黄乙的梦呓 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +271,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html">
+    <link itemprop="mainEntityOfPage" href="http://me61.com/block-element-modifier.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄乙">
@@ -301,7 +292,7 @@
             
             
               
-                快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat
+                BEM 命名规则
               
             
           </h1>
@@ -316,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T14:29:36+08:00">
-                2017年03月14日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T09:34:29+08:00">
+                2017年04月12日
               </time>
             
 
@@ -352,8 +343,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/运维/" itemprop="url" rel="index">
-                    <span itemprop="name">运维</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -370,8 +361,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/setup-aliyun-ecs-nginx-php-mysql-tomcat.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="setup-aliyun-ecs-nginx-php-mysql-tomcat.html" itemprop="commentCount"></span>
+                <a href="/block-element-modifier.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="block-element-modifier.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -397,22 +388,22 @@
       
 
       
-        <blockquote>
-<p>不积跬步，无以至千里；<br>不积小流，无以成江海。</p>
-</blockquote>
-<p>阿里云服务器（Elastic Compute Service，简称 ECS）是一种简单高效、处理能力可弹性伸缩的计算服务。购买云服务器后，首先要安装并配置好服务软件。下面记录了在 ECS 安装 nginx、php、mysql 和 tomcat 的详细过程。</p>
-<a id="more"></a>
-<h2 id="登录远程服务器"><a href="#登录远程服务器" class="headerlink" title="登录远程服务器"></a>登录远程服务器</h2><p>打开 iTerm，也可以选择其它的终端软件，如：Putty、Xshell等。<br>如图<br><img src="img/blog3img1.png" alt="登录远程服务器过程"><br>使用 SSH 可以安全高效地远程管理服务器。首次登录时，需要输入「yes」来确认连接这台未知的远程服务器。登录时需要输入账号和密码。分别输入以下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh root@ip-address</div><div class="line">yes</div><div class="line">your-password</div></pre></td></tr></table></figure>
-<h2 id="格式化并挂载数据盘"><a href="#格式化并挂载数据盘" class="headerlink" title="格式化并挂载数据盘"></a>格式化并挂载数据盘</h2><p>下面使用 fdist 查看数据盘并分区。简单说明一下使用方法与步骤。<br>查看所有数据盘：<code>fdisk -l</code><br>对数据盘分区：<code>fdisk -S 56 /dev/xvdb</code>，再依次输入 <code>n p 1 enter enter wq</code><br>格式化分区：<code>mkfs.ext3 /dev/xvdb1</code><br>创建挂载目录：<code>mkdir /data</code><br>添加分区信息：<code>echo &#39;/dev/xvdb1  /lgdata ext3    defaults    0  0&#39; &gt;&gt; /etc/fstab</code><br>挂载：<code>mount -a</code><br>如图所示<br><img src="img/blog3img2.png" alt="格式化并挂载数据盘"></p>
-<h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm</div><div class="line">rpm -ivh nginx-release-centos-6-0.el6.ngx.noarch.rpm</div><div class="line">yum install nginx</div><div class="line">service nginx start</div><div class="line">chkconfig nginx on</div></pre></td></tr></table></figure>
-<h2 id="安装-php"><a href="#安装-php" class="headerlink" title="安装 php"></a>安装 php</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum install php php-mysql php-gd libjpeg* php-pear php-xml php-mbstring php-mcrypt php-mhash libmcrypt libm</div><div class="line">crypt-devel php-imap php-ldap php-odbc php-bcmath php-xmlrpc php-fpm</div><div class="line">service php-fpm start</div><div class="line">chkconfig php-fpm on</div></pre></td></tr></table></figure>
-<h2 id="安装-mysql"><a href="#安装-mysql" class="headerlink" title="安装 mysql"></a>安装 mysql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">yum install mysql mysql-server mysql-devel</div><div class="line">mysqladmin -u root password <span class="string">"yourpswd"</span></div><div class="line"></div><div class="line"><span class="comment"># 修改数据库目录</span></div><div class="line"><span class="built_in">cd</span> /data</div><div class="line">mkdir mysql</div><div class="line">cp -R /var/lib/mysql/* /data/mysql/</div><div class="line">chown mysql:mysql -R /data/mysql/</div><div class="line">vim /etc/my.cnf</div><div class="line">datadir=/data/mysql </div><div class="line"></div><div class="line"><span class="comment"># 启动 mysql</span></div><div class="line">service mysqld start</div><div class="line">chkconfig mysqld on</div></pre></td></tr></table></figure>
-<h2 id="安装-tomcat"><a href="#安装-tomcat" class="headerlink" title="安装 tomcat"></a>安装 tomcat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /data</div><div class="line">mkdir app</div><div class="line"><span class="built_in">cd</span> app/</div><div class="line">wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.11/bin/apache-tomcat-8.5.11.tar.gz</div><div class="line">tar -zxvf apache-tomcat-8.5.11.tar.gz </div><div class="line">./apache-tomcat-8.5.11/bin/startup.sh</div></pre></td></tr></table></figure>
-<h2 id="配置-nginx、php-和-tomcat"><a href="#配置-nginx、php-和-tomcat" class="headerlink" title="配置 nginx、php 和 tomcat"></a>配置 nginx、php 和 tomcat</h2><p>打开 nginx 配置文件，添加以下配置在 server 中</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#proxy the php scripts to php-fpm</div><div class="line">location ~ \.php$ &#123;</div><div class="line">  include fastcgi.conf;</div><div class="line">  fastcgi_intercept_errors on;</div><div class="line">  fastcgi_pass   127.0.0.1:9000;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#proxy the jsp page to tomcat</div><div class="line">location /tomcat &#123;</div><div class="line">  proxy_pass   http://localhost:8080;</div><div class="line">  proxy_redirect off;</div><div class="line">  proxy_set_header Host $host;</div><div class="line">  proxy_set_header X-Real-IP $remote_addr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>重新载入配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nginx -t <span class="comment">#测试配置是否正确</span></div><div class="line">nginx <span class="_">-s</span> reload</div></pre></td></tr></table></figure></p>
-<p>经过以上操作，已经完成安装配置 nginx、php、mysql 和 tomcat。</p>
+        <p>最近使用 weui 开发移动端网页。其中的 CSS 命名方式勾起了我的兴趣。特意去了解它的来由。原来一开始 weui 的命名规范是采用「模块+应用场景」的方式，没有对连字符和层级做严格区分，团队内约定使用的都是下划线。后来改用了 BEM 的命名规则，横杠是连词符，双下划线区分 block 与 element，单下划线后面跟 modifier。相比「模块+应用场景」，BEM 命名规则更利于代码的开发与维护，也广受开发者的接受。</p>
+<h2 id="BEM-是什么？"><a href="#BEM-是什么？" class="headerlink" title="BEM 是什么？"></a>BEM 是什么？</h2><p>BEM 是 Yandex 团队提出的一种前端命名规则，分别是：块（block）、元素（element）、修饰符（modifier）的首字母。以 weui 为例：block 与 element 之间用双下划线区分，modifier 用单下划线区分。<br>下面用 weui 的代码来解释一下 BEM 的定义，和实际应用。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.weui-dialog</span> &#123;</div><div class="line">  <span class="attribute">position</span>: fixed;</div><div class="line">  <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__hd</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">1.3em</span> <span class="number">1.6em</span> <span class="number">0.5em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__bd</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">1.6em</span> <span class="number">0.8em</span>;</div><div class="line">  <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__ft</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__btn</span> &#123;</div><div class="line">  <span class="attribute">display</span>: block;</div><div class="line">  <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__btn_default</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#353535</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__btn_primary</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#0BB20C</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>weui 是全局前辍，避免与其它的 css 类名重复。</li>
+<li>dialog 是 block，块名必须是唯一。</li>
+<li>hd、bd、ft、btn 是 element，是块的组成部分。</li>
+<li>default、primary 是 modifier，给元素以不同的小装饰。</li>
+</ol>
+<h2 id="Block-是什么？"><a href="#Block-是什么？" class="headerlink" title="Block 是什么？"></a>Block 是什么？</h2><p>简单说就是界面上一个块，这个块既可以是简单的，也可以包含其他块。块名必须是唯一的，明确指出它所描述的是哪个块。块也应该是独立的，在页面中添加，删除，或者是移动一些块时，不需要对块进行修改。</p>
+<p>还是拿 weui 来举例。前面出现的 dialog（对话框）以及 cells（列表）、uploader（上传）、panel（面板）等，这些都是块。</p>
+<h2 id="Element-元素"><a href="#Element-元素" class="headerlink" title="Element 元素"></a>Element 元素</h2><p>元素是块的组成部分，是依赖上下文的。也就是说元素是在所属的块中，指定的位置时，才能表现出应有的功能。</p>
+<p>同样，在 weui 中，对话框包含的元素有：hd（头部）、bd（主体）、ft（尾部）、btn（按钮）等。</p>
+<h2 id="Modifier-修饰符"><a href="#Modifier-修饰符" class="headerlink" title="Modifier 修饰符"></a>Modifier 修饰符</h2><p>修饰符可以与块、元素一起工作。我们经常需要在已经定义好的块或者元素上，做一些小调整来满足特定的小功能。通常是外观或行为有些许改变。这时使用修饰符来处理。</p>
+<p>在上面的例子中：对话框的按钮是有区别的，默认按钮和主要按钮，它们之间基本都一样的，通过修饰符来配上不一样的颜色，就能很好区分开它们的功能了。</p>
+<h2 id="什么时候需要-BEM"><a href="#什么时候需要-BEM" class="headerlink" title="什么时候需要 BEM"></a>什么时候需要 BEM</h2><p>没必要在每个地方都用上它。<br>当你掌握了 BEM 的命名规则，体会到它的优点，而且对界面结构充分理解时，你就可以尝试一下使用。</p>
 
       
     </div>
@@ -436,17 +427,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/aliyun/" rel="tag"># aliyun</a>
+            <a href="/tags/css/" rel="tag"># css</a>
           
-            <a href="/tags/ecs/" rel="tag"># ecs</a>
-          
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
-          
-            <a href="/tags/php/" rel="tag"># php</a>
-          
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
-          
-            <a href="/tags/tomcat/" rel="tag"># tomcat</a>
+            <a href="/tags/weui/" rel="tag"># weui</a>
           
         </div>
       
@@ -459,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/markdown-quick-guide.html" rel="next" title="Markdown 速成手册">
-                <i class="fa fa-chevron-left"></i> Markdown 速成手册
+              <a href="/gulp-in-action.html" rel="next" title="前端自动化构建工具 Gulp">
+                <i class="fa fa-chevron-left"></i> 前端自动化构建工具 Gulp
               </a>
             
           </div>
@@ -468,10 +451,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/gulp-in-action.html" rel="prev" title="前端自动化构建工具 Gulp">
-                前端自动化构建工具 Gulp <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -497,8 +476,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="setup-aliyun-ecs-nginx-php-mysql-tomcat.html"
-           data-title="快速在阿里云 ECS 安装 nginx、php、mysql 和 tomcat" data-url="http://me61.com/setup-aliyun-ecs-nginx-php-mysql-tomcat.html">
+      <div class="ds-thread" data-thread-key="block-element-modifier.html"
+           data-title="BEM 命名规则" data-url="http://me61.com/block-element-modifier.html">
       </div>
     
   </div>
@@ -627,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#登录远程服务器"><span class="nav-number">1.</span> <span class="nav-text">登录远程服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化并挂载数据盘"><span class="nav-number">2.</span> <span class="nav-text">格式化并挂载数据盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-nginx"><span class="nav-number">3.</span> <span class="nav-text">安装 nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-php"><span class="nav-number">4.</span> <span class="nav-text">安装 php</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-mysql"><span class="nav-number">5.</span> <span class="nav-text">安装 mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-tomcat"><span class="nav-number">6.</span> <span class="nav-text">安装 tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-nginx、php-和-tomcat"><span class="nav-number">7.</span> <span class="nav-text">配置 nginx、php 和 tomcat</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BEM-是什么？"><span class="nav-number">1.</span> <span class="nav-text">BEM 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-是什么？"><span class="nav-number">2.</span> <span class="nav-text">Block 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element-元素"><span class="nav-number">3.</span> <span class="nav-text">Element 元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modifier-修饰符"><span class="nav-number">4.</span> <span class="nav-text">Modifier 修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候需要-BEM"><span class="nav-number">5.</span> <span class="nav-text">什么时候需要 BEM</span></a></li></ol></div>
             
 
           </div>
