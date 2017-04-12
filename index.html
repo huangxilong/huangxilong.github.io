@@ -390,25 +390,15 @@
 
       
         
-          
-            <p>最近使用 weui 开发移动端网页。其中的 CSS 命名方式勾起了我的兴趣。特意去了解它的来由。原来一开始 weui 的命名规范是采用「模块+应用场景」的方式，没有对连字符和层级做严格区分，团队内约定使用的都是下划线。后来改用了 BEM 的命名规则，横杠是连词符，双下划线区分 block 与 element，单下划线后面跟 modifier。相比「模块+应用场景」，BEM 命名规则更利于代码的开发与维护，也广受开发者的接受。</p>
+          <p>最近使用 weui 开发移动端网页。其中的 CSS 命名方式勾起了我的兴趣。特意去了解它的来由。原来一开始 weui 的命名规范是采用「模块+应用场景」的方式，没有对连字符和层级做严格区分，团队内约定使用的都是下划线。后来改用了 BEM 的命名规则，横杠是连词符，双下划线区分 block 与 element，单下划线后面跟 modifier。相比「模块+应用场景」，BEM 命名规则更利于代码的开发与维护，也广受开发者的接受。</p>
 <h2 id="BEM-是什么？"><a href="#BEM-是什么？" class="headerlink" title="BEM 是什么？"></a>BEM 是什么？</h2><p>BEM 是 Yandex 团队提出的一种前端命名规则，分别是：块（block）、元素（element）、修饰符（modifier）的首字母。以 weui 为例：block 与 element 之间用双下划线区分，modifier 用单下划线区分。<br>下面用 weui 的代码来解释一下 BEM 的定义，和实际应用。</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.weui-dialog</span> &#123;</div><div class="line">  <span class="attribute">position</span>: fixed;</div><div class="line">  <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__hd</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">1.3em</span> <span class="number">1.6em</span> <span class="number">0.5em</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__bd</span> &#123;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">1.6em</span> <span class="number">0.8em</span>;</div><div class="line">  <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__ft</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__btn</span> &#123;</div><div class="line">  <span class="attribute">display</span>: block;</div><div class="line">  <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__btn_default</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#353535</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.weui-dialog__btn_primary</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#0BB20C</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>weui 是全局前辍，避免与其它的 css 类名重复。</li>
-<li>dialog 是 block，块名必须是唯一。</li>
-<li>hd、bd、ft、btn 是 element，是块的组成部分。</li>
-<li>default、primary 是 modifier，给元素以不同的小装饰。</li>
-</ol>
-<h2 id="Block-是什么？"><a href="#Block-是什么？" class="headerlink" title="Block 是什么？"></a>Block 是什么？</h2><p>简单说就是界面上一个块，这个块既可以是简单的，也可以包含其他块。块名必须是唯一的，明确指出它所描述的是哪个块。块也应该是独立的，在页面中添加，删除，或者是移动一些块时，不需要对块进行修改。</p>
-<p>还是拿 weui 来举例。前面出现的 dialog（对话框）以及 cells（列表）、uploader（上传）、panel（面板）等，这些都是块。</p>
-<h2 id="Element-元素"><a href="#Element-元素" class="headerlink" title="Element 元素"></a>Element 元素</h2><p>元素是块的组成部分，是依赖上下文的。也就是说元素是在所属的块中，指定的位置时，才能表现出应有的功能。</p>
-<p>同样，在 weui 中，对话框包含的元素有：hd（头部）、bd（主体）、ft（尾部）、btn（按钮）等。</p>
-<h2 id="Modifier-修饰符"><a href="#Modifier-修饰符" class="headerlink" title="Modifier 修饰符"></a>Modifier 修饰符</h2><p>修饰符可以与块、元素一起工作。我们经常需要在已经定义好的块或者元素上，做一些小调整来满足特定的小功能。通常是外观或行为有些许改变。这时使用修饰符来处理。</p>
-<p>在上面的例子中：对话框的按钮是有区别的，默认按钮和主要按钮，它们之间基本都一样的，通过修饰符来配上不一样的颜色，就能很好区分开它们的功能了。</p>
-<h2 id="什么时候需要-BEM"><a href="#什么时候需要-BEM" class="headerlink" title="什么时候需要 BEM"></a>什么时候需要 BEM</h2><p>没必要在每个地方都用上它。<br>当你掌握了 BEM 的命名规则，体会到它的优点，而且对界面结构充分理解时，你就可以尝试一下使用。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/block-element-modifier.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
