@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://me61.com/"/>
-  <updated>2017-04-12T08:23:30.000Z</updated>
+  <updated>2017-05-04T04:41:09.000Z</updated>
   <id>http://me61.com/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从源码学习 WeUI</title>
+    <link href="http://me61.com/study-weui-source-codes.html"/>
+    <id>http://me61.com/study-weui-source-codes.html</id>
+    <published>2017-05-03T08:44:04.000Z</published>
+    <updated>2017-05-04T04:41:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>微信作为一个优秀的产品，离不开一个优秀的团队。WeUI 也是这个团队的产品，目前在 github 上已经 14424 Star，4007 Fork。它是一个开源产品，我们不仅可以在项目中使用它，也可以深入地学习它是怎样实现功能的。对于前端开发者来说，这是一个非常不错的资源。</p>
+<h2 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h2><p>随着智能手机的普及，手机端开发者也有极大的需求。WeUI 为微信 Web 服务量身设计的框架，我们在项目里引入它，开发时可以事半功倍。另外，学习优秀团队的作品，也是一个很有意思的事情。若发现其中的问题，可以向官方提出改进。也可学习其中优秀的代码技巧。</p>
+<h2 id="我的学习环境与工具"><a href="#我的学习环境与工具" class="headerlink" title="我的学习环境与工具"></a>我的学习环境与工具</h2><p>工欲善其事必先利其器，先说明一下我使用的开发环境和工具。</p>
+<ul>
+<li>MacBook Air，是 Apple 推出的一款很薄的笔记本电脑。</li>
+<li>iTerm2，是一款好用的终端工具。</li>
+<li>Visual Studio Code，是一款免费开源的现代化轻量级代码编辑器（下文简写为 VS Code）。</li>
+</ul>
+<p>在 iTerm2 中使用 git 命令下载源代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/weui/weui.git</div><div class="line">cd weui</div><div class="line">npm install</div><div class="line">npm start</div></pre></td></tr></table></figure>
+<p>然后用 VS Code，打开刚才下载的文件夹「weui」，这样就能方便地阅读源码了。</p>
+<h2 id="源码目录和文件"><a href="#源码目录和文件" class="headerlink" title="源码目录和文件"></a>源码目录和文件</h2><p>下面列出根目录下的主要目录、文件。</p>
+<ul>
+<li>dist，发布目录。</li>
+<li>src，源码目录。</li>
+<li>bower.json，描述 bower 包信息。</li>
+<li>gulpfile.js，gulp 运行配置文件。</li>
+<li>package.json，描述 npm 包的作者、简介、包依赖、构建等信息。</li>
+</ul>
+<h2 id="安装、运行-weui"><a href="#安装、运行-weui" class="headerlink" title="安装、运行 weui"></a>安装、运行 weui</h2><p>在 iTerm2 中，<br>使用 <code>npm install</code> 命令安装模块到 node_modules 目录。<br>使用 <code>npm start</code> 命令打开 weui 演示例子。</p>
+<p>这时终端会用默认浏览器打开网址：<a href="http://localhost:8081/example/" target="_blank" rel="external">http://localhost:8081/example/</a></p>
+<h2 id="npm-start-是怎样工作的？"><a href="#npm-start-是怎样工作的？" class="headerlink" title="npm start 是怎样工作的？"></a>npm start 是怎样工作的？</h2><p>该命令写在 package.json 文件 scripts 的 start 字段中。用 VS Code 打开 package.json 文件，搜索一下「scripts」关键字。可以看到如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="comment">// 以上忽略</span></div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">        <span class="string">"start"</span>: <span class="string">"gulp -ws"</span>,</div><div class="line">        <span class="string">"test"</span>: <span class="string">"gulp release"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以看到，其实运行的指令是：<code>gulp -ws</code>。</p>
+<h2 id="gulp-ws-有什么作用？"><a href="#gulp-ws-有什么作用？" class="headerlink" title="gulp -ws 有什么作用？"></a>gulp -ws 有什么作用？</h2><p>打开 gulpfile.js 文件。找到与 <code>ws</code> 参数相关的代码。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> yargs = <span class="built_in">require</span>(<span class="string">'yargs'</span>)</div><div class="line">    .options(&#123;</div><div class="line">        <span class="string">'w'</span>: &#123;</div><div class="line">            <span class="attr">alias</span>: <span class="string">'watch'</span>,</div><div class="line">            <span class="attr">type</span>: <span class="string">'boolean'</span></div><div class="line">        &#125;,</div><div class="line">        <span class="string">'s'</span>: &#123;</div><div class="line">            <span class="attr">alias</span>: <span class="string">'server'</span>,</div><div class="line">            <span class="attr">type</span>: <span class="string">'boolean'</span></div><div class="line">        &#125;,</div><div class="line">        <span class="string">'p'</span>: &#123;</div><div class="line">            <span class="attr">alias</span>: <span class="string">'port'</span>,</div><div class="line">            <span class="attr">type</span>: <span class="string">'number'</span></div><div class="line">        &#125;</div><div class="line">    &#125;).argv;</div></pre></td></tr></table></figure></p>
+<p>原来是要执行 <code>watch</code>、<code>server</code> 这两个任务。</p>
+<h2 id="watch-任务"><a href="#watch-任务" class="headerlink" title="watch 任务"></a>watch 任务</h2><p>先找到 <code>watch</code> 定义的代码。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'watch'</span>, [<span class="string">'release'</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.watch(<span class="string">'src/style/**/*'</span>, [<span class="string">'build:style'</span>]);</div><div class="line">    gulp.watch(<span class="string">'src/example/example.less'</span>, [<span class="string">'build:example:style'</span>]);</div><div class="line">    gulp.watch(<span class="string">'src/example/**/*.?(png|jpg|gif|js)'</span>, [<span class="string">'build:example:assets'</span>]);</div><div class="line">    gulp.watch(<span class="string">'src/**/*.html'</span>, [<span class="string">'build:example:html'</span>]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>以上代码的作用是，当我们更新了指定的源代码文件，就会执行相应的任务，把更新的功能自动发布到 dist 目录里。</p>
+<h2 id="server-任务"><a href="#server-任务" class="headerlink" title="server 任务"></a>server 任务</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'server'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    yargs.p = yargs.p || <span class="number">8080</span>;</div><div class="line">    browserSync.init(&#123;</div><div class="line">        <span class="attr">server</span>: &#123;</div><div class="line">            <span class="attr">baseDir</span>: <span class="string">"./dist"</span></div><div class="line">        &#125;,</div><div class="line">        <span class="attr">ui</span>: &#123;</div><div class="line">            <span class="attr">port</span>: yargs.p + <span class="number">1</span>,</div><div class="line">            <span class="attr">weinre</span>: &#123;</div><div class="line">                <span class="attr">port</span>: yargs.p + <span class="number">2</span></div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">port</span>: yargs.p,</div><div class="line">        <span class="attr">startPath</span>: <span class="string">'/example'</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这里使用了 browser-sync，它的作用是在本地启动一个 Web 开发服务器，并且能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。</p>
+<p>想了解更多 gulpfile.js 任务，还可以回看一下之前我写的文章<a href="gulp-in-action.html">【前端自动化构建工具 Gulp】</a>。</p>
+<p>在演示网址 <a href="http://localhost:8081/example/" target="_blank" rel="external">http://localhost:8081/example/</a> 中，我们看以看到 weui 的各种常用控件的外观与交互。后面的文章会对每个控件的源码，进行单独详细阅读说明。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;微信作为一个优秀的产品，离不开一个优秀的团队。WeUI 也是这个团队的产品，目前在 github 上已经 14424 Star，4007 Fork。它是一个开源产品，我们不仅可以在项目中使用它，也可以深入地学习它是怎样实现功能的。对于前端开发者来说，这是一个非常不错的资源。
+    
+    </summary>
+    
+      <category term="前端" scheme="http://me61.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="css" scheme="http://me61.com/tags/css/"/>
+    
+      <category term="weui" scheme="http://me61.com/tags/weui/"/>
+    
+      <category term="less" scheme="http://me61.com/tags/less/"/>
+    
+  </entry>
   
   <entry>
     <title>BEM 命名规则</title>
