@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="gulp,weui," />
+  <meta name="keywords" content="weui,less," />
 
 
 
@@ -89,19 +89,25 @@
 
 
 
-<meta name="description" content="微信作为一个优秀的产品，离不开一个优秀的团队。WeUI 也是这个团队的产品，目前在 github 上已经 14424 Star，4007 Fork。它是一个开源产品，我们不仅可以在项目中使用它，也可以深入地学习它是怎样实现功能的。对于前端开发者来说，这是一个非常不错的资源。
-学习目的随着智能手机的普及，手机端开发者也有极大的需求。WeUI 为微信 Web 服务量身设计的框架，我们在项目里引入它，开">
+<meta name="description" content="上一篇文章【从源码学习 WeUI】主要内容是：学习 WeUI 源码目的，开发环境与工具，源码根目录的主要目录和文件简介，安装、运行 weui，gulp 的主要任务简单说明。本文接着继续深入学习。
+源码目录有两个子目录，example 和 style。
+
+example，从名称就可以知道，这个目录的代码是用来演示 WeUI 使用方法的。包括：按钮、列表、弹框、进度条、提示、文章、响应菜单、图标等各式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从源码学习 WeUI">
-<meta property="og:url" content="http://me61.com/study-weui-source-codes.html">
+<meta property="og:title" content="从源码学习 WeUI 2">
+<meta property="og:url" content="http://me61.com/study-weui-source-codes-2.html">
 <meta property="og:site_name" content="黄乙的梦呓">
-<meta property="og:description" content="微信作为一个优秀的产品，离不开一个优秀的团队。WeUI 也是这个团队的产品，目前在 github 上已经 14424 Star，4007 Fork。它是一个开源产品，我们不仅可以在项目中使用它，也可以深入地学习它是怎样实现功能的。对于前端开发者来说，这是一个非常不错的资源。
-学习目的随着智能手机的普及，手机端开发者也有极大的需求。WeUI 为微信 Web 服务量身设计的框架，我们在项目里引入它，开">
-<meta property="og:updated_time" content="2017-05-04T04:46:45.000Z">
+<meta property="og:description" content="上一篇文章【从源码学习 WeUI】主要内容是：学习 WeUI 源码目的，开发环境与工具，源码根目录的主要目录和文件简介，安装、运行 weui，gulp 的主要任务简单说明。本文接着继续深入学习。
+源码目录有两个子目录，example 和 style。
+
+example，从名称就可以知道，这个目录的代码是用来演示 WeUI 使用方法的。包括：按钮、列表、弹框、进度条、提示、文章、响应菜单、图标等各式">
+<meta property="og:updated_time" content="2017-05-22T03:43:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从源码学习 WeUI">
-<meta name="twitter:description" content="微信作为一个优秀的产品，离不开一个优秀的团队。WeUI 也是这个团队的产品，目前在 github 上已经 14424 Star，4007 Fork。它是一个开源产品，我们不仅可以在项目中使用它，也可以深入地学习它是怎样实现功能的。对于前端开发者来说，这是一个非常不错的资源。
-学习目的随着智能手机的普及，手机端开发者也有极大的需求。WeUI 为微信 Web 服务量身设计的框架，我们在项目里引入它，开">
+<meta name="twitter:title" content="从源码学习 WeUI 2">
+<meta name="twitter:description" content="上一篇文章【从源码学习 WeUI】主要内容是：学习 WeUI 源码目的，开发环境与工具，源码根目录的主要目录和文件简介，安装、运行 weui，gulp 的主要任务简单说明。本文接着继续深入学习。
+源码目录有两个子目录，example 和 style。
+
+example，从名称就可以知道，这个目录的代码是用来演示 WeUI 使用方法的。包括：按钮、列表、弹框、进度条、提示、文章、响应菜单、图标等各式">
 
 
 
@@ -129,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://me61.com/study-weui-source-codes.html"/>
+  <link rel="canonical" href="http://me61.com/study-weui-source-codes-2.html"/>
 
 
 
 
 
-  <title> 从源码学习 WeUI | 黄乙的梦呓 </title>
+  <title> 从源码学习 WeUI 2 | 黄乙的梦呓 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://me61.com/study-weui-source-codes.html">
+    <link itemprop="mainEntityOfPage" href="http://me61.com/study-weui-source-codes-2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄乙">
@@ -295,7 +301,7 @@
             
             
               
-                从源码学习 WeUI
+                从源码学习 WeUI 2
               
             
           </h1>
@@ -310,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T16:44:04+08:00">
-                2017年05月03日
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T23:47:50+08:00">
+                2017年05月05日
               </time>
             
 
@@ -364,8 +370,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/study-weui-source-codes.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="study-weui-source-codes.html" itemprop="commentCount"></span>
+                <a href="/study-weui-source-codes-2.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="study-weui-source-codes-2.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -391,38 +397,47 @@
       
 
       
-        <p>微信作为一个优秀的产品，离不开一个优秀的团队。WeUI 也是这个团队的产品，目前在 github 上已经 14424 Star，4007 Fork。它是一个开源产品，我们不仅可以在项目中使用它，也可以深入地学习它是怎样实现功能的。对于前端开发者来说，这是一个非常不错的资源。</p>
-<h2 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h2><p>随着智能手机的普及，手机端开发者也有极大的需求。WeUI 为微信 Web 服务量身设计的框架，我们在项目里引入它，开发时可以事半功倍。另外，学习优秀团队的作品，也是一个很有意思的事情。若发现其中的问题，可以向官方提出改进。也可学习其中优秀的代码技巧。</p>
-<a id="more"></a>
-<h2 id="我的学习环境与工具"><a href="#我的学习环境与工具" class="headerlink" title="我的学习环境与工具"></a>我的学习环境与工具</h2><p>工欲善其事必先利其器，先说明一下我使用的开发环境和工具。</p>
+        <p>上一篇文章<a href="study-weui-source-codes.html">【从源码学习 WeUI】</a>主要内容是：学习 WeUI 源码目的，开发环境与工具，源码根目录的主要目录和文件简介，安装、运行 weui，gulp 的主要任务简单说明。本文接着继续深入学习。</p>
+<p>源码目录有两个子目录，<code>example</code> 和 <code>style</code>。</p>
 <ul>
-<li>MacBook Air，是 Apple 推出的一款很薄的笔记本电脑。</li>
-<li>iTerm2，是一款好用的终端工具。</li>
-<li>Visual Studio Code，是一款免费开源的现代化轻量级代码编辑器（下文简写为 VS Code）。</li>
+<li>example，从名称就可以知道，这个目录的代码是用来演示 WeUI 使用方法的。包括：按钮、列表、弹框、进度条、提示、文章、响应菜单、图标等各式组件。</li>
+<li>style，存放着 WeUI 的基础样式库源码。我们的学习过程，就是要把这个目录的每个文件都读一遍或以上，理解并掌握。</li>
 </ul>
-<p>在 iTerm2 中使用 git 命令下载源代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/weui/weui.git</div><div class="line">cd weui</div><div class="line">npm install</div><div class="line">npm start</div></pre></td></tr></table></figure>
-<p>然后用 VS Code，打开刚才下载的文件夹「weui」，这样就能方便地阅读源码了。</p>
-<h2 id="源码目录和文件"><a href="#源码目录和文件" class="headerlink" title="源码目录和文件"></a>源码目录和文件</h2><p>下面列出根目录下的主要目录、文件。</p>
+<h2 id="example-目录"><a href="#example-目录" class="headerlink" title="example 目录"></a>example 目录</h2><p>子目录与文件说明：</p>
 <ul>
-<li>dist，发布目录。</li>
-<li>src，源码目录。</li>
-<li>bower.json，描述 bower 包信息。</li>
-<li>gulpfile.js，gulp 运行配置文件。</li>
-<li>package.json，描述 npm 包的作者、简介、包依赖、构建等信息。</li>
+<li>fragment 目录，各式独立组件的示例代码块。</li>
+<li>images 目录，存放示例中需要用到的图片文件。</li>
+<li>snapshot 目录，存放演示的实际屏幕快照图片。</li>
+<li>example.js，主要功能有：预加载部分图片文件，优化手机端点击事件，管理各组件示例界面。</li>
+<li>example.less，演示的样式表文件，使用了 Less 预处理语言。</li>
+<li>index.html，网页基本结构文件。</li>
+<li>zepto.min.js，为现代手机浏览器推出的 js 库。</li>
 </ul>
-<h2 id="安装、运行-weui"><a href="#安装、运行-weui" class="headerlink" title="安装、运行 weui"></a>安装、运行 weui</h2><p>在 iTerm2 中，<br>使用 <code>npm install</code> 命令安装模块到 node_modules 目录。<br>使用 <code>npm start</code> 命令打开 weui 演示例子。</p>
-<p>这时终端会用默认浏览器打开网址：<a href="http://localhost:8081/example/" target="_blank" rel="external">http://localhost:8081/example/</a></p>
-<h2 id="npm-start-是怎样工作的？"><a href="#npm-start-是怎样工作的？" class="headerlink" title="npm start 是怎样工作的？"></a>npm start 是怎样工作的？</h2><p>该命令写在 package.json 文件 scripts 的 start 字段中。用 VS Code 打开 package.json 文件，搜索一下「scripts」关键字。可以看到如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="comment">// 以上忽略</span></div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">        <span class="string">"start"</span>: <span class="string">"gulp -ws"</span>,</div><div class="line">        <span class="string">"test"</span>: <span class="string">"gulp release"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>可以看到，其实运行的指令是：<code>gulp -ws</code>。</p>
-<h2 id="gulp-ws-有什么作用？"><a href="#gulp-ws-有什么作用？" class="headerlink" title="gulp -ws 有什么作用？"></a>gulp -ws 有什么作用？</h2><p>打开 gulpfile.js 文件。找到与 <code>ws</code> 参数相关的代码。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> yargs = <span class="built_in">require</span>(<span class="string">'yargs'</span>)</div><div class="line">    .options(&#123;</div><div class="line">        <span class="string">'w'</span>: &#123;</div><div class="line">            <span class="attr">alias</span>: <span class="string">'watch'</span>,</div><div class="line">            <span class="attr">type</span>: <span class="string">'boolean'</span></div><div class="line">        &#125;,</div><div class="line">        <span class="string">'s'</span>: &#123;</div><div class="line">            <span class="attr">alias</span>: <span class="string">'server'</span>,</div><div class="line">            <span class="attr">type</span>: <span class="string">'boolean'</span></div><div class="line">        &#125;,</div><div class="line">        <span class="string">'p'</span>: &#123;</div><div class="line">            <span class="attr">alias</span>: <span class="string">'port'</span>,</div><div class="line">            <span class="attr">type</span>: <span class="string">'number'</span></div><div class="line">        &#125;</div><div class="line">    &#125;).argv;</div></pre></td></tr></table></figure></p>
-<p>原来是要执行 <code>watch</code>、<code>server</code> 这两个任务。</p>
-<h2 id="watch-任务"><a href="#watch-任务" class="headerlink" title="watch 任务"></a>watch 任务</h2><p>先找到 <code>watch</code> 定义的代码。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'watch'</span>, [<span class="string">'release'</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.watch(<span class="string">'src/style/**/*'</span>, [<span class="string">'build:style'</span>]);</div><div class="line">    gulp.watch(<span class="string">'src/example/example.less'</span>, [<span class="string">'build:example:style'</span>]);</div><div class="line">    gulp.watch(<span class="string">'src/example/**/*.?(png|jpg|gif|js)'</span>, [<span class="string">'build:example:assets'</span>]);</div><div class="line">    gulp.watch(<span class="string">'src/**/*.html'</span>, [<span class="string">'build:example:html'</span>]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>以上代码的作用是，当我们更新了指定的源代码文件，就会执行相应的任务，把更新的功能自动发布到 dist 目录里。</p>
-<h2 id="server-任务"><a href="#server-任务" class="headerlink" title="server 任务"></a>server 任务</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'server'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    yargs.p = yargs.p || <span class="number">8080</span>;</div><div class="line">    browserSync.init(&#123;</div><div class="line">        <span class="attr">server</span>: &#123;</div><div class="line">            <span class="attr">baseDir</span>: <span class="string">"./dist"</span></div><div class="line">        &#125;,</div><div class="line">        <span class="attr">ui</span>: &#123;</div><div class="line">            <span class="attr">port</span>: yargs.p + <span class="number">1</span>,</div><div class="line">            <span class="attr">weinre</span>: &#123;</div><div class="line">                <span class="attr">port</span>: yargs.p + <span class="number">2</span></div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">port</span>: yargs.p,</div><div class="line">        <span class="attr">startPath</span>: <span class="string">'/example'</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>这里使用了 browser-sync，它的作用是在本地启动一个 Web 开发服务器，并且能让浏览器实时、快速响应您的文件更改（html、js、css、sass、less等）并自动刷新页面。</p>
-<p>想了解更多 gulpfile.js 任务，还可以回看一下之前我写的文章<a href="gulp-in-action.html">【前端自动化构建工具 Gulp】</a>。</p>
-<p>在演示网址 <a href="http://localhost:8081/example/" target="_blank" rel="external">http://localhost:8081/example/</a> 中，我们看以看到 weui 的各种常用控件的外观与交互。后面的文章会对每个控件的源码，进行单独详细阅读说明。</p>
+<p>这里有两点跟我们平常写的网页不一样。</p>
+<ol>
+<li>各式组件放在 fragment 目录，分成了很多个代码块文件。</li>
+<li>example.less 这个文件跟常见的 css 文件不太一样。</li>
+</ol>
+<h2 id="style-目录"><a href="#style-目录" class="headerlink" title="style 目录"></a>style 目录</h2><p>基础样式库源码目录与文件说明：</p>
+<ul>
+<li>base 目录，常用的 mixin（手机定制、箭头、1像素、文本），基础变量（颜色、字体、组件参数），重置浏览器默认样式。</li>
+<li>icon 目录，是用 IconFont 实现常用图标。</li>
+<li>widget 目录，独立组件的源码。</li>
+<li>weui.less，WeUI 主文件，就是导入了上面目录的文件。</li>
+</ul>
+<p>可以看到，WeUI 项目是精心设计的，抽离了常用的 mixin、基础变量，对常用图标也单独处理，常用的组件也统一放到组件目录，再按照不同的组件放在独自的子目录里。这样子可以减轻后续维护的成本，同时也对学习这个产品的思路比较清晰。</p>
+<h1 id="Less-预处理语言"><a href="#Less-预处理语言" class="headerlink" title="Less 预处理语言"></a>Less 预处理语言</h1><p>Less 是一种 CSS 扩展，使用现有的 CSS 语法新增了额外的特性，而且向后兼容 CSS。简单说，我们可以使用新的扩展语法，也可以使用标准的 CSS语法。</p>
+<p>下面简要说明一下常用的扩展语法：</p>
+<ul>
+<li>导入(Importing)，引入外部文件。</li>
+<li>变量(Variables)，例如颜色、大小可以统一定义，要修改也只改一下就可以了。</li>
+<li>混合(Mixins)，可以将一系列属性从一个规则集引入到其它的规则集里。</li>
+<li>嵌套规则(Nested rules)，模仿了 HTML 的结构，把子元素定义在父元素里面。</li>
+<li>运算(Operations)，数值，颜色和变量都可以进行运算。</li>
+<li>函数(Functions)，Less 提供了颜色，处理字符串和进行算术运算函数。</li>
+</ul>
+<p>详细的 Less 参考手册请到<a href="http://lesscss.org/" target="_blank" rel="external">官网（lesscss.org）</a>上查阅更全面。</p>
+<p>有了以上的初步了解，以及 Less 的熟悉，我们后面可以逐个组件来学习 WeUI 的使用和源码了。</p>
 
       
     </div>
@@ -446,9 +461,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/gulp/" rel="tag"># gulp</a>
-          
             <a href="/tags/weui/" rel="tag"># weui</a>
+          
+            <a href="/tags/less/" rel="tag"># less</a>
           
         </div>
       
@@ -461,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/block-element-modifier.html" rel="next" title="BEM 命名规则">
-                <i class="fa fa-chevron-left"></i> BEM 命名规则
+              <a href="/study-weui-source-codes.html" rel="next" title="从源码学习 WeUI">
+                <i class="fa fa-chevron-left"></i> 从源码学习 WeUI
               </a>
             
           </div>
@@ -470,10 +485,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/study-weui-source-codes-2.html" rel="prev" title="从源码学习 WeUI 2">
-                从源码学习 WeUI 2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -499,8 +510,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="study-weui-source-codes.html"
-           data-title="从源码学习 WeUI" data-url="http://me61.com/study-weui-source-codes.html">
+      <div class="ds-thread" data-thread-key="study-weui-source-codes-2.html"
+           data-title="从源码学习 WeUI 2" data-url="http://me61.com/study-weui-source-codes-2.html">
       </div>
     
   </div>
@@ -629,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习目的"><span class="nav-number">1.</span> <span class="nav-text">学习目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的学习环境与工具"><span class="nav-number">2.</span> <span class="nav-text">我的学习环境与工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码目录和文件"><span class="nav-number">3.</span> <span class="nav-text">源码目录和文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装、运行-weui"><span class="nav-number">4.</span> <span class="nav-text">安装、运行 weui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-start-是怎样工作的？"><span class="nav-number">5.</span> <span class="nav-text">npm start 是怎样工作的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-ws-有什么作用？"><span class="nav-number">6.</span> <span class="nav-text">gulp -ws 有什么作用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch-任务"><span class="nav-number">7.</span> <span class="nav-text">watch 任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-任务"><span class="nav-number">8.</span> <span class="nav-text">server 任务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#example-目录"><span class="nav-number">1.</span> <span class="nav-text">example 目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#style-目录"><span class="nav-number">2.</span> <span class="nav-text">style 目录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Less-预处理语言"><span class="nav-number"></span> <span class="nav-text">Less 预处理语言</span></a></div>
             
 
           </div>
