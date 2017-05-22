@@ -137,9 +137,9 @@
       <category term="前端" scheme="http://me61.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="gulp" scheme="http://me61.com/tags/gulp/"/>
-    
       <category term="weui" scheme="http://me61.com/tags/weui/"/>
+    
+      <category term="gulp" scheme="http://me61.com/tags/gulp/"/>
     
   </entry>
   
@@ -225,9 +225,9 @@
       <category term="前端" scheme="http://me61.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="gulp" scheme="http://me61.com/tags/gulp/"/>
-    
       <category term="css" scheme="http://me61.com/tags/css/"/>
+    
+      <category term="gulp" scheme="http://me61.com/tags/gulp/"/>
     
       <category term="nodejs" scheme="http://me61.com/tags/nodejs/"/>
     
